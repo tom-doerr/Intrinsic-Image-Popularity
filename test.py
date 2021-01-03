@@ -17,11 +17,11 @@ def prepare_image(image):
     image = image.unsqueeze(0)
     return image.to(device)
 
-def predict(image, model):
+def predict(image, model, image_path):
     image = prepare_image(image)
     with torch.no_grad():
         preds = model(image)
-    print(r'Popularity score: %.2f' % preds.item())
+    print(f'{image_path}   ' + r'Popularity score: %.2f' % preds.item())
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
@@ -33,4 +33,4 @@ if __name__ == '__main__':
     model.fc = torch.nn.Linear(in_features=2048, out_features=1)
     model.load_state_dict(torch.load('model/model-resnet50.pth', map_location=device)) 
     model.eval().to(device)
-    predict(image, model)
+    predict(image, model, config.image_path)
