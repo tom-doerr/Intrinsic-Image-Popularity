@@ -21,7 +21,7 @@ def predict(image, model, image_path):
     image = prepare_image(image)
     with torch.no_grad():
         preds = model(image)
-    print(f'{image_path}   ' + r'Popularity score: %.2f' % preds.item())
+    print(f'{preds.item(): 2.2f}  {image_path}')
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
