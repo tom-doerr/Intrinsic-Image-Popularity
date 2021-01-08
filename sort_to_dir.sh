@@ -10,7 +10,7 @@ log_file_dir_sorted="$log_file"_sorted
 for i in {0..6}
 do
     mkdir -p $log_file_dir_sorted/$i
-    for e in $(cat $log_file  | awk '/'"$i"'\./ {print $2}')
+    for e in $(cat $log_file  | awk '/ '"$i"'\./ {print $2}')
     do
         ln -s $e $log_file_dir_sorted/$i/
     done
