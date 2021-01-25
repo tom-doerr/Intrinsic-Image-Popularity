@@ -2,7 +2,7 @@
 
 set -x
 
-NUM_PROCESSES=8
+NUM_PROCESSES=1
 
 base_path="$1"
 filter="$2"
@@ -23,5 +23,5 @@ printf "$files_without_score" | parallel -j"$NUM_PROCESSES" python3 test.py --im
 #printf "$files_without_score" | grep "\.jpg" | parallel -j1 python3 test.py --image_path  | tee -a scores/$base_path
 #eval "echo $files_without_score"' | grep "\.jpg" | grep "$filter" | parallel -j1 python3 test.py --image_path ' | tee -a scores/"$base_path"
 #eval 'find $base_path/* | grep "\.jpg" | grep "$filter" | parallel -j1 python3 test.py --image_path ' | tee -a scores/"$base_path"
-#./sort_to_dir.sh scores/$base_path
+./sort_to_dir.sh scores/$base_path
 
