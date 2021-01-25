@@ -3,6 +3,7 @@
 set -x 
 
 source venv/bin/activate
+export CUDA_VISIBLE_DEVICES=1
 
 ./rank.sh Camera 2021
 cd /home/tom/git/Intrinsic-Image-Popularity/results/Camera_sorted
