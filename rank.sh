@@ -8,7 +8,7 @@ base_path="$1"
 filter="$2"
 
 files_without_score=""
-for e in $base_path/$filter*\.jpg
+for e in $base_path/$filter*\.png $base_path/$filter*\.jpg
 do
         if ! grep $e scores/Camera 
         then
